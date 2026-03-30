@@ -1,5 +1,5 @@
 import pandas as pd
-from database import create_connection
+from src.database import create_connection
 
 
 def extract_data():
@@ -11,16 +11,16 @@ def extract_data():
 
 def transform_data(df):
 
-    # clean column names
+    
     df.columns = df.columns.str.strip().str.replace(" ", "")
     
-    # convert date column
+    
     df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
 
-    # remove missing customers
+    
     df = df.dropna(subset=["CustomerID"])
 
-    # create revenue column
+    
     df["TotalPrice"] = df["Quantity"] * df["Price"]
 
     return df

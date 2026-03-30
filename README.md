@@ -136,3 +136,12 @@ The system generates:
 - Real-time streaming data
 - Interactive dashboard using Streamlit
   
+## step to run the project
+
+- git clone <your-repo-link>
+    cd Retail_Project
+- python -m venv venv for mac and  venv\Scripts\activate for windows
+- pip install -r requirements.txt
+- python etl.py
+- python rfm.py
+- streamlit run app.py

@@ -1,5 +1,5 @@
 import pandas as pd
-from database import create_connection
+from src.database import create_connection
 
 
 def calculate_rfm():
@@ -22,7 +22,7 @@ def calculate_rfm():
 
     rfm = rfm.reset_index()
 
-    # Create RFM scores
+    
     rfm["R_score"] = pd.qcut(rfm["Recency"], 4, labels=[4,3,2,1])
     rfm["F_score"] = pd.qcut(rfm["Frequency"], 4, labels=[1,2,3,4])
     rfm["M_score"] = pd.qcut(rfm["Monetary"], 4, labels=[1,2,3,4])
@@ -33,7 +33,7 @@ def calculate_rfm():
         rfm["M_score"].astype(str)
     )
 
-    # Segment customers
+    
     def segment_customer(row):
 
         if row["RFM_Score"] == "444":

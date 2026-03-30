@@ -1,7 +1,17 @@
-from etl_pipeline import run_etl
-from rfm_segmentation import calculate_rfm
-from report_generation import generate_reports
+from src.etl_pipeline import run_etl
+from src.rfm_segmentation import calculate_rfm
+from src.report_generation import generate_reports
+import logging
+import os
 
+os.makedirs("logs", exist_ok=True)  
+
+logging.basicConfig(
+    filename="logs/scheduler.log",
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
 
 def run_pipeline():
 
@@ -25,9 +35,3 @@ if __name__ == "__main__":
     run_pipeline()
 
 
-import logging
-
-logging.basicConfig(
-    filename="logs/pipeline.log",
-    level=logging.INFO
-)
