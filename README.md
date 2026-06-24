@@ -36,6 +36,9 @@ SQLite Data Warehouse
 Analytics & KPI Computation  
       ↓  
 Automated Reporting
+      ↓
+Streamlit Deployment
+      
 
 
 ## 📂 Data Source
