@@ -1,30 +1,22 @@
 import pandas as pd
 from src.database import create_connection
 
-
 def extract_data():
 
     df = pd.read_csv("data/OnlineRetail.csv")
-
     return df
-
 
 def transform_data(df):
 
-    
     df.columns = df.columns.str.strip().str.replace(" ", "")
-    
     
     df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
 
-    
     df = df.dropna(subset=["CustomerID"])
 
-    
     df["TotalPrice"] = df["Quantity"] * df["Price"]
 
     return df
-
 
 def load_data(df):
 
@@ -36,9 +28,7 @@ def load_data(df):
         if_exists="replace",
         index=False
     )
-
     conn.close()
-
 
 def run_etl():
 

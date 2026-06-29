@@ -1,4 +1,4 @@
-<h1> Automated Retail Analytics Pipeline  </h1> 
+<h1> End-to-End Retail Analytics Pipeline with ETL, SQLite, RFM Segmentation & Streamlit Dashboard  </h1> 
 
 ## 📖 Project Overview
 
